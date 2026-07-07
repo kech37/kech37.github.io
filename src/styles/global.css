@@ -67,7 +67,7 @@ body::before{
   object-fit:cover;
   border-radius:50%;
   border:2px solid var(--line);
-  justify-self:start;
+  justify-self:center;
   cursor:zoom-in;
   transition:transform .35s cubic-bezier(.2,.8,.25,1),border-color .35s,box-shadow .35s;
 }
