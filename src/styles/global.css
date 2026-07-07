@@ -1,0 +1,293 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --paper:#fbfbf9;
+  --ink:#16181c;
+  --ink-2:#4d5158;
+  --ink-3:#8a8f98;
+  --line:#e4e4df;
+  --cobalt:#2b3fd4;
+  --cobalt-soft:#eceefc;
+  --warm:#d95f2b;
+  --warm-soft:#fdeee3;
+  --ok:#1a9e52;
+  --dot:#2b3fd4;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#131417;
+    --ink:#e9e9e5;
+    --ink-2:#a3a7ae;
+    --ink-3:#6b6f77;
+    --line:#26282e;
+    --cobalt:#7a8cff;
+    --cobalt-soft:#1b2040;
+    --warm:#ff9866;
+    --warm-soft:#2c2018;
+    --ok:#4ade80;
+    --dot:#7a8cff;
+  }
+}
+
+::selection{background:var(--cobalt);color:var(--paper)}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Instrument Sans',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(640px 420px at 88% -8%, var(--cobalt-soft), transparent 70%),
+    radial-gradient(520px 380px at -8% 30%, var(--warm-soft), transparent 70%);
+}
+
+.mono{font-family:'IBM Plex Mono',monospace}
+
+.wrap{max-width:840px;margin:0 auto;padding:0 1.5rem}
+
+/* ───────── header ───────── */
+.hero{padding:6rem 0 4.5rem;border-bottom:1px solid var(--line)}
+
+.hero-grid{
+  display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center;
+}
+@media(min-width:640px){
+  .hero-grid{grid-template-columns:1fr auto}
+}
+
+.portrait{
+  width:168px;height:168px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid var(--line);
+  justify-self:start;
+  cursor:zoom-in;
+  transition:transform .35s cubic-bezier(.2,.8,.25,1),border-color .35s,box-shadow .35s;
+}
+@media(min-width:640px){
+  .portrait{width:200px;height:200px;justify-self:end}
+}
+.portrait.zoomed{
+  transform:scale(1.45);
+  border-color:var(--cobalt);
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+  cursor:zoom-out;
+  position:relative;z-index:2;
+}
+
+.path{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.8rem;
+  color:var(--ink-3);
+  margin-bottom:2.5rem;
+}
+.path b{color:var(--cobalt);font-weight:500}
+
+h1{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:700;
+  font-size:clamp(2.6rem,9vw,5.2rem);
+  line-height:0.98;
+  letter-spacing:-0.03em;
+  margin-bottom:1.6rem;
+}
+h1 .dim{color:var(--ink-3);font-weight:400}
+
+.intro{
+  font-size:clamp(1.05rem,2.4vw,1.25rem);
+  color:var(--ink-2);
+  max-width:34em;
+  margin-bottom:2.4rem;
+}
+.intro em{font-style:normal;color:var(--ink);border-bottom:2px solid var(--cobalt)}
+
+.hero-links{
+  display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.82rem;
+}
+.hero-links a{
+  color:var(--ink-2);text-decoration:none;
+  padding-bottom:1px;border-bottom:1px solid var(--line);
+  transition:color .15s,border-color .15s;
+}
+.hero-links a:hover{color:var(--cobalt);border-color:var(--cobalt)}
+
+/* ───────── section scaffolding ───────── */
+section{padding:4.5rem 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+
+.sec-head{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.78rem;
+  color:var(--ink-3);
+  margin-bottom:2.8rem;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.sec-head::before{content:'$';color:var(--cobalt)}
+
+h2{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:500;
+  font-size:clamp(1.5rem,4vw,2.1rem);
+  letter-spacing:-0.02em;
+  margin-bottom:1.2rem;
+}
+
+/* ───────── now ───────── */
+.now p{color:var(--ink-2);max-width:38em;font-size:1.05rem}
+.now p + p{margin-top:1em}
+.now strong{color:var(--ink);font-weight:500}
+
+/* ───────── git log timeline ───────── */
+.gitlog{position:relative;padding-left:2rem}
+.gitlog::before{
+  content:'';position:absolute;left:7px;top:10px;bottom:10px;
+  width:2px;background:var(--line);
+}
+
+.commit{position:relative;padding-bottom:2.6rem}
+.commit:last-child{padding-bottom:0}
+.commit::before{
+  content:'';position:absolute;left:-2rem;top:6px;
+  width:16px;height:16px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--dot);
+}
+.commit.head::before{background:var(--dot)}
+
+.c-meta{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.75rem;color:var(--ink-3);
+  display:flex;flex-wrap:wrap;gap:0.4rem 1rem;
+  margin-bottom:0.35rem;
+}
+.c-hash{color:var(--cobalt)}
+.c-tag{
+  color:var(--warm);
+  background:var(--warm-soft);
+  padding:0 0.45em;border-radius:3px;
+}
+
+.c-msg{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:500;font-size:1.15rem;
+  letter-spacing:-0.01em;
+  margin-bottom:0.15rem;
+}
+.c-org{font-size:0.9rem;color:var(--ink-2);margin-bottom:0.5rem}
+.c-body{font-size:0.92rem;color:var(--ink-2);max-width:40em}
+
+/* ───────── stack ───────── */
+.stack{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+@media(min-width:640px){.stack{grid-template-columns:repeat(2,1fr)}}
+.stack-cell{
+  padding:1.4rem 1.5rem;
+  background:var(--paper);
+  transition:background .15s;
+}
+.stack-cell:hover{background:var(--cobalt-soft)}
+.stack-cell h3{
+  font-family:'IBM Plex Mono',monospace;
+  font-weight:500;font-size:0.75rem;
+  color:var(--cobalt);
+  text-transform:lowercase;
+  margin-bottom:0.7rem;
+}
+.stack-cell h3::before{content:'// '}
+.stack-cell p{
+  font-size:0.95rem;color:var(--ink-2);line-height:1.8;
+}
+
+/* ───────── voices ───────── */
+.voice{margin-bottom:3.2rem}
+.voice:last-child{margin-bottom:0}
+
+.voice blockquote{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:400;
+  font-size:clamp(1.15rem,3vw,1.5rem);
+  line-height:1.45;
+  letter-spacing:-0.01em;
+  max-width:30em;
+}
+.voice blockquote::before{content:'"';color:var(--cobalt)}
+.voice blockquote::after{content:'"';color:var(--cobalt)}
+
+.voice cite{
+  display:block;margin-top:0.9rem;
+  font-family:'IBM Plex Mono',monospace;
+  font-style:normal;font-size:0.78rem;color:var(--ink-3);
+}
+.voice cite b{color:var(--ink-2);font-weight:500}
+.voice cite a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line);transition:color .15s,border-color .15s}
+.voice cite a:hover{color:var(--cobalt);border-color:var(--cobalt)}
+
+.voice:nth-child(even) blockquote{margin-left:auto}
+.voice:nth-child(even) cite{text-align:right}
+
+/* ───────── offstage ───────── */
+.offstage{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:640px){.offstage{grid-template-columns:5fr 4fr;gap:3rem}}
+
+.offstage p{color:var(--ink-2);font-size:1rem}
+.offstage p + p{margin-top:1em}
+
+.fact-list{list-style:none;border-top:1px solid var(--line)}
+.fact-list li{
+  padding:0.85rem 0;
+  border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:1rem;
+  font-size:0.88rem;
+}
+.fact-list .k{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--ink-3);padding-top:2px}
+.fact-list .v{text-align:right;color:var(--ink)}
+.fact-list .v a,.offstage p a{color:var(--cobalt);text-decoration:none;border-bottom:1px solid var(--cobalt)}
+.fact-list .v a:hover,.offstage p a:hover{opacity:.75}
+
+/* ───────── footer ───────── */
+footer{padding:4rem 0 5rem}
+.foot-cta{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:500;
+  font-size:clamp(1.4rem,4vw,2rem);
+  letter-spacing:-0.02em;
+  margin-bottom:1.4rem;
+}
+.foot-cta a{color:var(--cobalt);text-decoration:none;border-bottom:2px solid var(--cobalt)}
+.foot-cta a:hover{opacity:.8}
+
+.foot-meta{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.75rem;color:var(--ink-3);
+  display:flex;flex-wrap:wrap;gap:0.4rem 1.5rem;
+}
+.foot-meta a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+.foot-meta a:hover{color:var(--cobalt);border-color:var(--cobalt)}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero>*{animation:rise .6s ease both}
+  .hero>*:nth-child(2){animation-delay:.08s}
+  .hero>*:nth-child(3){animation-delay:.16s}
+  .hero>*:nth-child(4){animation-delay:.24s}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+}
+
+@media(max-width:540px){
+  .hero{padding:4rem 0 3rem}
+  section{padding:3rem 0}
+  .voice:nth-child(even) blockquote{margin-left:0}
+  .voice:nth-child(even) cite{text-align:left}
+}

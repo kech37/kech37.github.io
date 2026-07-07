@@ -1,0 +1,20 @@
+---
+import { career } from '../data/career.ts';
+---
+<section>
+  <p class="sec-head">git log --oneline --career</p>
+  <div class="gitlog">
+    {career.map((entry) => (
+      <div class:list={['commit', { head: entry.isHead }]}>
+        <p class="c-meta">
+          <span class="c-hash">{entry.hash}</span>
+          <span>{entry.date}</span>
+          {entry.isHead && <span class="c-tag">HEAD</span>}
+        </p>
+        <p class="c-msg">{entry.message}</p>
+        <p class="c-org">{entry.org}</p>
+        <p class="c-body">{entry.body}</p>
+      </div>
+    ))}
+  </div>
+</section>

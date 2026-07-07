@@ -1,0 +1,15 @@
+---
+import { testimonials } from '../data/testimonials.ts';
+---
+<section>
+  <p class="sec-head">grep -r "carlos" ./colleagues</p>
+  {testimonials.map((t) => (
+    <div class="voice">
+      <blockquote>{t.quote}</blockquote>
+      <cite>
+        <b><a href={t.linkedinUrl} target="_blank" rel="noopener">{t.name}</a></b>
+        {' '}— {t.relationship}
+      </cite>
+    </div>
+  ))}
+</section>

@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import CareerTimeline from '../components/CareerTimeline.astro';
+import Stack from '../components/Stack.astro';
+import Voices from '../components/Voices.astro';
+import Offstage from '../components/Offstage.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+<Base>
+  <div class="wrap">
+    <Hero />
+
+    <section class="now">
+      <p class="sec-head">whoami</p>
+      <h2>Building backends since 2019. Still enjoying it.</h2>
+      <p>
+        These days I'm a <strong>Senior Software Engineer at Intermedia Intelligent Communications</strong>,
+        working mostly in C# and .NET. Before that I was a Lead Software Developer at Imaginary Cloud,
+        helping products grow from early MVPs into real platforms — and the teams along with them.
+      </p>
+      <p>
+        The part of the job I like most is the middle bit: figuring out what actually
+        needs to be built, sketching out how, and helping the team get it over the line.
+      </p>
+    </section>
+
+    <CareerTimeline />
+    <Stack />
+    <Voices />
+    <Offstage />
+    <Footer />
+  </div>
+</Base>

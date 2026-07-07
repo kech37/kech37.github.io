@@ -1,0 +1,27 @@
+---
+---
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <p class="path">~/coimbra/<b>carlos-pinho</b> <span style="opacity:.6">on</span> <b>main</b></p>
+      <h1>Carlos Pinho<span class="dim">.</span></h1>
+      <p class="intro">
+        Senior software engineer. I build the systems behind the product —
+        <em>these days in C# and .NET, after years of TypeScript and Node</em> —
+        and I enjoy the people side of it as much as the code.
+      </p>
+      <nav class="hero-links" aria-label="Contact">
+        <a href="mailto:me@cpinho.com">me@cpinho.com</a>
+        <a href="https://github.com/kech37" target="_blank" rel="noopener">github/kech37</a>
+        <a href="https://linkedin.com/in/cpinho37" target="_blank" rel="noopener">linkedin/cpinho37</a>
+      </nav>
+    </div>
+    <img class="portrait" src="/me.jpeg" alt="Carlos Pinho" width="200" height="200" />
+  </div>
+</header>
+
+<script>
+  document.querySelector('.portrait')?.addEventListener('click', function () {
+    (this as HTMLElement).classList.toggle('zoomed');
+  });
+</script>

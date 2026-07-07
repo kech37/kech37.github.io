@@ -1,0 +1,37 @@
+---
+import { facts } from '../data/offstage.ts';
+---
+<section>
+  <p class="sec-head">life --no-terminal</p>
+  <div class="offstage">
+    <div>
+      <h2>Eight years in a cape.</h2>
+      <p>
+        Before I was coordinating engineers, I was coordinating musicians. For eight years
+        I played classical guitar and sang in the <strong>Estudantina Universitária de
+        Coimbra</strong>, and served as vice president of the Fado Section of the Associação
+        Académica de Coimbra. There's plenty of video evidence of the singing years over on
+        <a href="https://www.youtube.com/@cpinho37" target="_blank" rel="noopener">YouTube</a>.
+      </p>
+      <p>
+        In 2019 I directed <strong>FESTUNA</strong>, the Estudantina's festival —
+        a €15,000 budget, 150+ people, and the first sold-out edition in nearly a decade.
+        Turns out herding musicians and herding engineers are pretty much the same job.
+      </p>
+    </div>
+    <div>
+      <ul class="fact-list">
+        {facts.map((fact) => (
+          <li>
+            <span class="k">{fact.key}</span>
+            <span class="v">
+              {fact.href
+                ? <a href={fact.href} target="_blank" rel="noopener">{fact.value}</a>
+                : fact.value}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

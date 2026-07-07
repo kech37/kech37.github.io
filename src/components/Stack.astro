@@ -1,0 +1,14 @@
+---
+import { stack } from '../data/stack.ts';
+---
+<section>
+  <p class="sec-head">cat stack.txt</p>
+  <div class="stack">
+    {stack.map((cell) => (
+      <div class="stack-cell">
+        <h3>{cell.label}</h3>
+        <p>{cell.prose}</p>
+      </div>
+    ))}
+  </div>
+</section>
