@@ -12,11 +12,11 @@ export interface Tool {
 // set the tool's base path to /<tool>/ so its assets resolve.
 // The section hides itself while this array is empty.
 export const tools: Tool[] = [
-  // {
-  //   name: 'example-tool',
-  //   tagline: 'One line about what it does and why it exists.',
-  //   repo: 'https://github.com/kech37/example-tool',
-  //   url: 'https://cpinho.com/example-tool/',
-  //   status: 'live',
-  // },
+  {
+    name: 'edp-dynamic-billing-viewer',
+    tagline: 'Drop your EDP XLSX reports, get a full dashboard of consumption, cost, and market-price patterns. All in-browser, nothing uploaded.',
+    repo: 'https://github.com/kech37/edp-dynamic-billing-viewer',
+    url: 'https://cpinho.com/edp-dynamic-billing-viewer/',
+    status: 'live',
+  },
 ];

@@ -24,6 +24,11 @@ import { tools } from '../data/tools.ts';
           </div>
         </article>
       ))}
+      {tools.length % 2 === 1 && (
+        <div class="tool-cell tool-next" aria-hidden="true">
+          <span><b>$</b> waiting for the next itch<i class="caret"></i></span>
+        </div>
+      )}
     </div>
   </section>
 )}
