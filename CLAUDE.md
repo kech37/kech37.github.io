@@ -42,4 +42,6 @@ public/
 
 **JS**: One `<script>` block in `Hero.astro` toggles `.zoomed` on the portrait image click. That's the entire client-side JS surface.
 
-**Section order**: hero → whoami (inlined in `index.astro`) → CareerTimeline → Stack → Voices → Offstage → Footer. The `whoami` section has no dynamic data and is inlined directly in `index.astro`.
+**Section order**: hero → whoami (inlined in `index.astro`) → CareerTimeline → Stack → Tools → Voices → Offstage → Footer. The `whoami` section has no dynamic data and is inlined directly in `index.astro`.
+
+**Tools section**: `src/data/tools.ts` lists vibe-coded side-project tools; the section renders nothing while the array is empty. Each tool lives in its own public repo with GitHub Pages enabled — because this site's CNAME is `cpinho.com`, a repo named `<tool>` is served at `cpinho.com/<tool>/` automatically (the tool's build must set its base path to `/<tool>/`).

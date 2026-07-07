@@ -1,0 +1,29 @@
+---
+import { tools } from '../data/tools.ts';
+---
+{tools.length > 0 && (
+  <section>
+    <p class="sec-head">ls ~/tools</p>
+    <h2>Small tools, mostly vibe-coded.</h2>
+    <p class="tools-intro">
+      Single-purpose things I build when a problem gets annoying enough,
+      with an AI pair-programmer doing most of the typing. Each one lives
+      in its own repo and runs right here under this domain.
+    </p>
+    <div class="tools">
+      {tools.map((tool) => (
+        <article class="tool-cell">
+          <div class="tool-head">
+            <h3>{tool.name}</h3>
+            <span class={`tool-status ${tool.status}`}>{tool.status}</span>
+          </div>
+          <p>{tool.tagline}</p>
+          <div class="tool-links">
+            {tool.url && <a href={tool.url}>run ↗</a>}
+            <a href={tool.repo} target="_blank" rel="noopener">source</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
