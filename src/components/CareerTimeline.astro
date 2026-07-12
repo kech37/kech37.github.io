@@ -12,7 +12,7 @@ import { career } from '../data/career.ts';
           {entry.isHead && <span class="c-tag">HEAD</span>}
         </p>
         <p class="c-msg">{entry.message}</p>
-        <p class="c-org">{entry.org}</p>
+        <p class="c-org">{entry.title} · {entry.org} · {entry.location}</p>
         <p class="c-body">{entry.body}</p>
       </div>
     ))}

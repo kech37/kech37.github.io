@@ -6,7 +6,7 @@ export interface StackCell {
 export const stack: StackCell[] = [
   {
     label: 'core',
-    prose: 'C# · .NET — the current daily drivers. TypeScript · Node.js before that, since 2019.',
+    prose: 'C# · .NET the current daily drivers. TypeScript · Node.js before that, since 2019.',
   },
   {
     label: 'data',
@@ -14,10 +14,10 @@ export const stack: StackCell[] = [
   },
   {
     label: 'infra',
-    prose: 'AWS · serverless · Docker · microservices. Systems that stay up.',
+    prose: 'AWS · Serverless · Docker · Microservices. Systems that stay up.',
   },
   {
     label: 'practice',
-    prose: 'Solution architecture · code review · mentoring · leading teams through ambiguity.',
+    prose: 'Solution architecture · Code review · Mentoring · Leading teams through ambiguity.',
   },
 ];
