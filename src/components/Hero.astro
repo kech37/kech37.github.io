@@ -16,11 +16,17 @@
         <a href="https://linkedin.com/in/cpinho37" target="_blank" rel="noopener">linkedin/cpinho37</a>
       </nav>
     </div>
-    <img class="portrait" src="/me.jpeg" alt="Carlos Pinho" width="200" height="200" />
+    <button class="portrait-btn" type="button" aria-pressed="false" aria-label="Zoom portrait">
+      <img class="portrait" src="/me.jpeg" alt="Carlos Pinho" width="200" height="200" />
+    </button>
   </div>
 </header>
 
 <script>
+  const btn = document.querySelector('.portrait-btn');
   const portrait = document.querySelector('.portrait');
-  portrait?.addEventListener('click', () => portrait.classList.toggle('zoomed'));
+  btn?.addEventListener('click', () => {
+    const zoomed = portrait?.classList.toggle('zoomed') ?? false;
+    btn.setAttribute('aria-pressed', String(zoomed));
+  });
 </script>

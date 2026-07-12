@@ -10,6 +10,7 @@ A personal portfolio site for Carlos Pinho, hosted via GitHub Pages at [cpinho.c
 
 ```bash
 npm run dev      # dev server at http://localhost:4321 with hot reload
+npm run check    # astro check — type-checks .astro/.ts files (also runs in CI)
 npm run build    # builds to dist/
 npm run preview  # serves dist/ locally
 ```
@@ -26,8 +27,9 @@ Before the first deploy on a fresh repo, go to **GitHub Settings → Pages → S
 src/
   components/    one .astro file per section
   data/          typed TS arrays — edit these to update content
-  layouts/Base.astro   <html>, <head>, Google Fonts links
+  layouts/Base.astro   <html>, <head>, meta/OG tags, self-hosted Fontsource font imports
   pages/index.astro    assembles all sections
+  pages/404.astro      terminal-styled 404, served by Pages for any dead path under the domain
   styles/global.css    all CSS (single file — see note below)
 public/
   me.jpeg        portrait photo
@@ -38,10 +40,12 @@ public/
 
 **Content as data**: Career entries, stack cells, testimonials, and offstage facts live in `src/data/*.ts` as typed arrays. To add a new career entry, edit `src/data/career.ts` — no HTML to touch.
 
-**Theming**: CSS custom properties on `:root` with a `@media (prefers-color-scheme: dark)` override. Primary accent `--cobalt`, secondary `--warm`, background `--paper`.
+**Theming**: dark-only. CSS custom properties on `:root` with `color-scheme: dark`; there is no light theme. Primary accent `--cobalt`, secondary `--warm`, background `--paper`.
 
-**JS**: One `<script>` block in `Hero.astro` toggles `.zoomed` on the portrait image click. That's the entire client-side JS surface.
+**Fonts**: self-hosted via `@fontsource/*` packages imported in `Base.astro` (no Google Fonts requests). Font family names in CSS match the Fontsource defaults, so adding a weight means importing another `<weight>.css` file.
 
-**Section order**: hero → whoami (inlined in `index.astro`) → CareerTimeline → Stack → Tools → Voices → Offstage → Footer. The `whoami` section has no dynamic data and is inlined directly in `index.astro`.
+**JS**: One `<script>` block in `Hero.astro` toggles `.zoomed` on the portrait when the wrapping `.portrait-btn` button is clicked (keyboard-accessible, syncs `aria-pressed`). That's the entire client-side JS surface.
+
+**Section order**: hero → whoami (inlined in `index.astro`) → CareerTimeline → Stack → Voices → Tools → Offstage → Footer. The `whoami` section has no dynamic data and is inlined directly in `index.astro`.
 
 **Tools section**: `src/data/tools.ts` lists vibe-coded side-project tools; the section renders nothing while the array is empty. Each tool lives in its own public repo with GitHub Pages enabled — because this site's CNAME is `cpinho.com`, a repo named `<tool>` is served at `cpinho.com/<tool>/` automatically (the tool's build must set its base path to `/<tool>/`).
