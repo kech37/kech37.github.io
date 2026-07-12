@@ -19,4 +19,11 @@ export const tools: Tool[] = [
     url: 'https://cpinho.com/edp-dynamic-billing-viewer/',
     status: 'live',
   },
+  {
+    name: 'aguas-coimbra-reports-viewer',
+    tagline: 'Drop your Águas de Coimbra hourly CSV exports, get a dashboard of water usage patterns, day profiles, and month comparisons. Nothing leaves your browser.',
+    repo: 'https://github.com/kech37/aguas-coimbra-reports-viewer',
+    url: 'https://cpinho.com/aguas-coimbra-reports-viewer/',
+    status: 'live',
+  },
 ];
